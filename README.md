@@ -17,6 +17,7 @@
 | 2  | Pavel   |
 
 | 3  | Ivan     |
+
 | 4  | Leonid |
 
 и таблицу Orders с столбцами 
@@ -39,7 +40,7 @@
 Решение задания №2
 
 Создаем таблицы
-`
+```
 CREATE TABLE Customers (
     Id int PRIMARY KEY NOT NULL,
     Name varchar(255) NOT NULL
@@ -50,10 +51,10 @@ CREATE TABLE Orders  (
     CustomerId  int NOT NULL,
     CONSTRAINT FK_CustomerOrder FOREIGN KEY (CustomerId) REFERENCES Customers(Id)
 );
-`
+```
 
 Добавляем в них данные
-`
+```
 INSERT INTO Customers
   (Id, Name)
 VALUES
@@ -67,9 +68,9 @@ INSERT INTO Orders
 VALUES
   (1, 2), 
   (2, 4);
-`
+```
 
 Производим нужную выборку
-`
+```
 SELECT Name FROM Customers LEFT JOIN Orders ON Orders.CustomerId = Customers.Id WHERE CustomerId IS NULL;
-`
+```
